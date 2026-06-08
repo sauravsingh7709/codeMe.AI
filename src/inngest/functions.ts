@@ -41,6 +41,11 @@ export const processTask = inngest.createFunction(
     return await generateText({
       model: openai('gpt-4.1-nano'),
       prompt: finalPrompt,
+      experimental_telemetry:{
+        isEnabled: true,
+        recordInputs: true,
+        recordOutputs: true,
+      }
     });
     })
 
